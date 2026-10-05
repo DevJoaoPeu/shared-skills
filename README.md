@@ -14,8 +14,11 @@ CLAUDE.md                  ponto de entrada: importa rules/*
 rules/
   guardrails.md            rédeas: escopo, quando perguntar, ações que exigem confirmação, proibições
   engenharia.md            boas práticas: design, erros, segurança, testes, git, definição de pronto
-skills/                    skills próprias (symlinkadas em ~/.claude/skills e ~/.codex/skills)
-scripts/install.sh         liga tudo à configuração global
+skills/                    skills globais (todo projeto)
+skills-pessoais/           skills com fluxo próprio, instaladas só por projeto
+skills.lock                origem e commit fixo de cada skill de terceiros
+scripts/install.sh         liga tudo à configuração global (ou a um projeto)
+scripts/vendor-skills.sh   (re)copia as skills de terceiros a partir do skills.lock
 docs/skills-recomendadas.md  skills de terceiros e fontes de confiança
 ```
 
@@ -29,13 +32,24 @@ docs/skills-recomendadas.md  skills de terceiros e fontes de confiança
   usuário, carregada em todo projeto). Editou `rules/`? Já vale na próxima sessão.
 - **Codex**: copia o conteúdo de `rules/*.md` para um bloco marcado em
   `~/.codex/AGENTS.md` (Codex não suporta `@import`). Editou `rules/`? Rode o script de novo.
-- **Skills**: cria symlink de cada `skills/<nome>/` — nunca sobrescreve o que existe.
+- **Skills globais**: cria symlink de cada `skills/<nome>/` em `~/.claude/skills` e
+  `~/.codex/skills` — nunca sobrescreve o que existe.
+- **Skills pessoais**: `./scripts/install.sh --projeto <dir>` liga `skills-pessoais/` só
+  naquele projeto (`.claude/skills` e `.agents/skills`, fora do git dele).
 
 O script é idempotente e não apaga conteúdo seu dos arquivos globais.
 
 Confira no Claude Code com `/memory` que o arquivo foi carregado.
 
 ## Manutenção
+
+### Atualizar skills de terceiros
+
+1. Troque o commit da skill em `skills.lock`.
+2. `./scripts/vendor-skills.sh`
+3. Revise o `git diff` (skill é instrução + código que o agente executa) e commite.
+
+### Regras
 
 - Mantenha as regras curtas: cada linha custa contexto em toda sessão. Se o agente já
   faz certo sem a regra, a regra sai.

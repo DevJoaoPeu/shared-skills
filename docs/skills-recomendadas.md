@@ -84,3 +84,14 @@ Supabase para Postgres, etc.) ou de empresa com reputação a perder.
 
 Confira o README de cada repo para o comando exato — alguns publicam marketplace,
 outros só a pasta de skills.
+
+## O que já está vendorizado neste repo
+
+Veja `skills/README.md` (globais) e `skills-pessoais/README.md` (por projeto); a origem
+e o commit de cada uma estão em `skills.lock`.
+
+Não são skills — são **plugins** e se instalam pelo `/plugin` do Claude Code (marketplace
+`anthropics/claude-plugins-official`): `typescript-lsp`, `pyright-lsp`, `commit-commands`,
+`security-guidance`, `claude-md-management`, `pr-review-toolkit`. O `code-review` já vem
+embutido no Claude Code como `/code-review`. `insecure-defaults` (Trail of Bits) virou
+comando/workflow de plugin, não skill — instale pelo marketplace `trailofbits/skills`.

@@ -37,11 +37,10 @@ install_codex_md() {
   echo "+ ~/.codex/AGENTS.md atualizado com rules/*.md"
 }
 
-link_skills() {
-  local dest="$1"
-  [ -d "$(dirname "$dest")" ] || return 0
+link_skills() { # origem destino
+  local src="$1" dest="$2"
   mkdir -p "$dest"
-  for dir in "$REPO"/skills/*/; do
+  for dir in "$src"/*/; do
     [ -f "$dir/SKILL.md" ] || continue
     local name; name="$(basename "$dir")"
     if [ -e "$dest/$name" ] || [ -L "$dest/$name" ]; then
@@ -53,7 +52,38 @@ link_skills() {
   done
 }
 
-install_claude_md
-install_codex_md
-link_skills "$HOME/.claude/skills"
-link_skills "$HOME/.codex/skills"
+# Symlinks apontam para esta máquina: não devem ir para o git do projeto.
+exclude_from_git() { # projeto caminho-relativo
+  local exclude="$1/.git/info/exclude"
+  [ -f "$exclude" ] || return 0
+  grep -qxF "/$2" "$exclude" || echo "/$2" >>"$exclude"
+}
+
+# Skills pessoais: só no projeto indicado (Claude lê .claude/skills, Codex lê .agents/skills).
+install_project() {
+  local proj; proj="$(cd "$1" && pwd)"
+  for sub in .claude/skills .agents/skills; do
+    for dir in "$REPO"/skills-pessoais/*/; do
+      [ -f "$dir/SKILL.md" ] && exclude_from_git "$proj" "$sub/$(basename "$dir")"
+    done
+    link_skills "$REPO/skills-pessoais" "$proj/$sub"
+  done
+}
+
+case "${1:-}" in
+  --projeto)
+    [ -n "${2:-}" ] && [ -d "$2" ] || { echo "uso: $0 --projeto <diretório do projeto>" >&2; exit 1; }
+    install_project "$2"
+    ;;
+  "")
+    install_claude_md
+    install_codex_md
+    [ -d "$HOME/.claude" ] && link_skills "$REPO/skills" "$HOME/.claude/skills"
+    [ -d "$HOME/.codex" ] && link_skills "$REPO/skills" "$HOME/.codex/skills"
+    ;;
+  *)
+    echo "uso: $0            # regras + skills globais" >&2
+    echo "     $0 --projeto <dir>  # skills pessoais em um projeto" >&2
+    exit 1
+    ;;
+esac

@@ -1,0 +1,36 @@
+# Skills de terceiros vendorizadas neste repo, com commit fixo.
+# Formato: <destino> <repo GitHub> <commit> <caminho da skill no repo>
+# Para atualizar: troque o commit, rode scripts/vendor-skills.sh e revise o diff.
+#
+# skills/          -> globais (todo projeto, Claude e Codex)
+# skills-pessoais/ -> só em projetos onde você instalar com: scripts/install.sh --projeto <dir>
+
+# --- globais: debug e verificação
+skills/systematic-debugging            obra/superpowers          8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/systematic-debugging
+skills/verification-before-completion  obra/superpowers          8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/verification-before-completion
+# --- globais: criação de skills e ferramentas
+skills/skill-creator                   anthropics/skills         683bc88e56f3e09ba94f7055977f3d3aa499f202 skills/skill-creator
+skills/mcp-builder                     anthropics/skills         683bc88e56f3e09ba94f7055977f3d3aa499f202 skills/mcp-builder
+skills/webapp-testing                  anthropics/skills         683bc88e56f3e09ba94f7055977f3d3aa499f202 skills/webapp-testing
+# --- globais: stack (só disparam quando o assunto aparece)
+skills/vercel-react-best-practices          vercel-labs/agent-skills  063bee94c3f4df8453406c830b0a7df0f2860278 skills/react-best-practices
+skills/vercel-composition-patterns         vercel-labs/agent-skills  063bee94c3f4df8453406c830b0a7df0f2860278 skills/composition-patterns
+skills/web-design-guidelines           vercel-labs/agent-skills  063bee94c3f4df8453406c830b0a7df0f2860278 skills/web-design-guidelines
+skills/supabase-postgres-best-practices supabase/agent-skills    c9be0e931b7930f7d02126d04774d904c381e7d7 skills/supabase-postgres-best-practices
+# --- globais: segurança e testes
+skills/differential-review             trailofbits/skills        82fe8226252622fa807643bdca1710901198553a plugins/differential-review/skills/differential-review
+skills/supply-chain-risk-auditor       trailofbits/skills        82fe8226252622fa807643bdca1710901198553a plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor
+skills/property-based-testing          trailofbits/skills        82fe8226252622fa807643bdca1710901198553a plugins/property-based-testing/skills/property-based-testing
+
+# --- pessoais: fluxo de planejamento (competiria com o pipeline do trabalho)
+skills-pessoais/brainstorming           obra/superpowers         8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/brainstorming
+skills-pessoais/writing-plans           obra/superpowers         8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/writing-plans
+skills-pessoais/executing-plans         obra/superpowers         8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/executing-plans
+skills-pessoais/test-driven-development obra/superpowers         8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/test-driven-development
+skills-pessoais/using-git-worktrees     obra/superpowers         8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/using-git-worktrees
+skills-pessoais/subagent-driven-development      obra/superpowers 8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/subagent-driven-development
+skills-pessoais/requesting-code-review          obra/superpowers 8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/requesting-code-review
+skills-pessoais/finishing-a-development-branch  obra/superpowers 8ca22dba9a94f28898bbce59f2537ff4d87c747d skills/finishing-a-development-branch
+skills-pessoais/frontend-design         anthropics/skills        683bc88e56f3e09ba94f7055977f3d3aa499f202 skills/frontend-design
+skills-pessoais/devcontainer-setup      trailofbits/skills       82fe8226252622fa807643bdca1710901198553a plugins/devcontainer-setup/skills/devcontainer-setup
+skills-pessoais/deploy-to-vercel        vercel-labs/agent-skills 063bee94c3f4df8453406c830b0a7df0f2860278 skills/deploy-to-vercel
