@@ -32,6 +32,17 @@
 - Link no corpo do post: a convenção é colocar no primeiro comentário.
 - Prometer o que o post não entrega ("o guia definitivo").
 
+O `scripts/checar-texto.py` procura esses padrões e outros típicos de IA (travessão
+em excesso, "não é X, é Y", tríade de adjetivos, fechamento com moral, parágrafos todos
+do mesmo tamanho). O que estiver na seção "É dele" do `voz.md` fica.
+
+## O que faz parecer gente
+
+- Detalhe que só ele sabe: o erro, o número, o projeto, a hora que travou.
+- Opinião com lado, e o limite dela ("funciona aqui porque…").
+- Ritmo irregular: frase solta de uma linha, depois um bloco maior.
+- Admitir o que não sabe ou ainda não testou.
+
 ## Formatos que funcionam para conteúdo técnico
 
 - **Conceito em 5 minutos**: o que é → como funciona → quando usar → custo.

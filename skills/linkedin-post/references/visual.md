@@ -4,6 +4,24 @@ O visual é HTML/CSS (`assets/template.html`) convertido em PNG/PDF pelo
 `scripts/render.sh` com Chrome headless. Tamanho fixo **1080×1350** (retrato 4:5, o que
 mais ocupa o feed no celular).
 
+## Material real primeiro
+
+Visual polido e genérico é o que mais parece IA. Na ordem:
+
+1. **Material do autor**: print do código no editor dele, terminal, log, painel
+   (RabbitMQ Management, Grafana, EXPLAIN do banco), diagrama que ele desenhou
+   (Excalidraw, quadro, papel). Peça na entrevista (Etapa 2).
+2. **Template em volta do material**: use o print como imagem dentro do slide
+   (`<img src="print.png" style="width:100%;border-radius:16px">`), com título e uma
+   frase de contexto. Copie o arquivo para a pasta de trabalho antes de renderizar.
+3. **Só template**: texto, código redigitado ou diagrama SVG — quando não há material.
+
+Sem enfeite: nada de ícone genérico, emoji em slide, ilustração de "pessoa com laptop"
+ou foto de banco de imagens. Espaço vazio é melhor que decoração.
+
+Antes de usar um print, confira se não aparece segredo, token, dado de cliente, e-mail
+ou URL interna; se aparecer, peça outro ou cubra com um retângulo no slide.
+
 ## Princípios
 
 - **Uma ideia por slide.** Se precisa de dois parágrafos, são dois slides.
