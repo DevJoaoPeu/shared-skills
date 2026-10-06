@@ -20,6 +20,7 @@ Cada pasta tem um `RESUMO.md` com para quê, quando usar/não usar e cuidados.
 | `differential-review` | trailofbits/skills | Revisão de segurança de diff/PR |
 | `supply-chain-risk-auditor` | trailofbits/skills | Avaliar risco das dependências |
 | `property-based-testing` | trailofbits/skills | Testes por propriedade |
+| `linkedin-post` | própria | Ideias, texto e carrossel para post técnico no LinkedIn |
 
 ## Terceiros vs. próprias
 
